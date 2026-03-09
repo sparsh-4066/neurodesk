@@ -159,12 +159,17 @@ body::after {
 }
 
 
-/* ===== LOGIN BUTTON ===== */
+/* ===== LOGIN / REGISTER BUTTON ===== */
 
 .auth-container button {
 
-  width: 100%;
+  width: 50%;          /* changed from 100% to 50% */
+
   padding: 14px;
+
+  margin: 0 auto;      /* centers the button */
+
+  display: block;
 
   border-radius: 10px;
 

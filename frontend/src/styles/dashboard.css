@@ -1,0 +1,118 @@
+.dashboard{
+  width:100%;
+  min-height:100vh;
+
+  padding:25px 60px;
+
+  text-align:center;
+
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+
+  background:linear-gradient(90deg,#facc15 0%,#0f172a 45%,#1e3a8a 100%);
+}
+
+/* TITLE */
+
+.dashboard-title{
+  font-size:38px;
+  font-weight:700;
+  margin-bottom:4px;
+}
+
+.dashboard-subtitle{
+  font-size:15px;
+  opacity:0.85;
+  margin-bottom:28px;
+}
+
+/* GRID */
+
+.dashboard-grid{
+  display:grid;
+
+  grid-template-columns:repeat(3,1fr);
+
+  gap:35px;
+
+  width:90%;
+  max-width:1400px;
+
+  margin:auto;
+}
+
+/* CARD */
+
+.dashboard-card{
+  height:210px;   /* reduced height */
+
+  border-radius:16px;
+
+  padding:20px;
+
+  cursor:pointer;
+
+  transition:0.35s ease;
+
+  display:flex;
+  flex-direction:column;
+
+  align-items:center;
+  justify-content:center;
+
+  backdrop-filter:blur(12px);
+}
+
+/* IMAGE */
+
+.dashboard-card img{
+  width:70px;   /* slightly smaller icon */
+  height:70px;
+
+  object-fit:contain;
+
+  margin-bottom:10px;
+}
+
+/* TEXT */
+
+.dashboard-card h3{
+  font-size:19px;
+  margin-bottom:5px;
+  font-weight:600;
+}
+
+.dashboard-card p{
+  font-size:13px;
+  opacity:0.8;
+}
+
+/* LEFT COLUMN BLUE */
+
+.blue-border{
+  border:3px solid #2563eb;
+  box-shadow:0 0 18px rgba(37,99,235,0.5);
+}
+
+/* MIDDLE COLUMN MIX */
+
+.mix-border{
+  border:3px solid;
+  border-image:linear-gradient(45deg,#2563eb,#facc15) 1;
+  box-shadow:0 0 20px rgba(250,204,21,0.4);
+}
+
+/* RIGHT COLUMN YELLOW */
+
+.yellow-border{
+  border:3px solid #facc15;
+  box-shadow:0 0 20px rgba(250,204,21,0.6);
+}
+
+/* HOVER EFFECT */
+
+.dashboard-card:hover{
+  transform:scale(1.05);
+  box-shadow:0 0 35px rgba(0,0,0,0.5);
+}
