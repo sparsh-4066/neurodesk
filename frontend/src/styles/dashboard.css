@@ -116,3 +116,21 @@
   transform:scale(1.05);
   box-shadow:0 0 35px rgba(0,0,0,0.5);
 }
+/* Make cards clickable */
+.dashboard-card {
+  cursor: pointer;
+  position: relative;
+  z-index: 5;
+}
+
+/* Prevent overlay layers from blocking clicks */
+.dashboard::before,
+.dashboard::after {
+  pointer-events: none;
+}
+
+/* Ensure grid items stay above gradients */
+.dashboard-grid {
+  position: relative;
+  z-index: 5;
+}

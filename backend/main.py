@@ -2,10 +2,11 @@ from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 
 from auth import register, login
+from routes.text_routes import router as text_router
+from routes.emotion_routes import router as emotion_router
 
 app = FastAPI()
 
-# Allow frontend to connect
 origins = [
     "http://localhost:5173",
     "http://localhost:5174",
@@ -19,9 +20,13 @@ app.add_middleware(
     allow_headers=["*"],
 )
 
-# Routes
+# Auth routes
 app.include_router(register.router)
 app.include_router(login.router)
+
+# AI routes
+app.include_router(text_router, prefix="/api/text", tags=["NeuralBrief"])
+app.include_router(emotion_router, prefix="/api", tags=["EmotionSense"])
 
 @app.get("/")
 def home():
