@@ -1,0 +1,78 @@
+/* PAGE */
+
+.emotion-page{
+  min-height:100vh;
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+
+  padding-top:80px;
+  color:white;
+}
+
+/* TITLE */
+
+.emotion-title{
+  font-size:64px;
+  font-weight:800;
+  letter-spacing:3px;
+  margin-bottom:60px;
+}
+
+/* MAIN LAYOUT */
+
+.emotion-layout{
+  display:flex;
+  align-items:center;
+  justify-content:center;
+
+  gap:80px;
+}
+
+/* CAMERA */
+
+.emotion-camera{
+  display:flex;
+  justify-content:center;
+}
+
+.emotion-video{
+  width:520px;
+  border-radius:16px;
+  box-shadow:0 0 20px rgba(0,0,0,0.4);
+}
+
+/* RESULT PANEL */
+
+.emotion-result{
+  width:280px;
+
+  padding:28px;
+  border-radius:14px;
+
+  background:rgba(0,0,0,0.4);
+  border:2px solid rgba(255,255,255,0.2);
+}
+
+/* TEXT */
+
+.emotion-heading{
+  font-size:14px;
+  letter-spacing:1px;
+  opacity:0.8;
+}
+
+.emotion-value{
+  font-size:34px;
+  margin-top:10px;
+}
+
+.emotion-confidence{
+  margin-top:10px;
+  opacity:0.8;
+}
+
+.emotion-assistant{
+  margin-top:10px;
+  opacity:0.7;
+}

@@ -1,0 +1,97 @@
+.videosage-container{
+  min-height:100vh;
+  display:flex;
+  justify-content:flex-start;
+  align-items:flex-start;
+  padding:80px 120px;
+  gap:80px;
+  color:white;
+}
+
+/* LEFT SIDE */
+
+.videosage-left{
+  width:420px;
+}
+
+.videosage-title{
+  font-size:60px;
+  font-weight:800;
+  letter-spacing:3px;
+}
+
+.videosage-subtitle{
+  margin-top:15px;
+  margin-bottom:40px;
+  opacity:0.8;
+}
+
+/* INPUTS */
+
+.videosage-input{
+  width:100%;
+  padding:16px;
+  border-radius:12px;
+  border:none;
+  margin-bottom:20px;
+  background:rgba(255,255,255,0.08);
+  color:white;
+  backdrop-filter:blur(10px);
+}
+
+.videosage-upload{
+  width:100%;
+  padding:16px;
+  border-radius:12px;
+  border:none;
+  margin-bottom:25px;
+  background:rgba(255,255,255,0.08);
+  color:white;
+  backdrop-filter:blur(10px);
+  cursor:pointer;
+}
+
+/* BUTTON */
+
+.videosage-button{
+  padding:14px 30px;
+  border:none;
+  border-radius:10px;
+
+  background:linear-gradient(135deg,#ffd700,#ff9d00);
+  color:black;
+  font-weight:700;
+  cursor:pointer;
+
+  position:relative;
+  z-index:10;
+
+  transition:0.25s ease;
+}
+
+.videosage-button:hover{
+  transform:scale(1.05);
+  box-shadow:0 0 12px rgba(255,215,0,0.6);
+}
+
+/* RIGHT SIDE */
+
+.videosage-right{
+  flex:1;
+}
+
+/* OUTPUT PANEL */
+
+.videosage-output{
+  width:100%;
+  min-height:220px;
+  padding:30px;
+  border-radius:14px;
+  background:rgba(0,0,0,0.35);
+  border:2px solid rgba(255,255,255,0.15);
+  overflow-y:auto;
+}
+
+.videosage-placeholder{
+  opacity:0.6;
+}

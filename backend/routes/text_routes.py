@@ -1,13 +1,18 @@
 from fastapi import APIRouter
+from pydantic import BaseModel
 from modules.text_summarizer import summarize_text
 
 router = APIRouter()
 
+class TextRequest(BaseModel):
+    text: str
+
+
 @router.post("/summarize")
-async def summarize(data: dict):
+async def summarize(request: TextRequest):
 
-    text = data["text"]
+    summary = summarize_text(request.text)
 
-    summary = summarize_text(text)
-
-    return {"summary": summary}
+    return {
+        "summary": summary
+    }

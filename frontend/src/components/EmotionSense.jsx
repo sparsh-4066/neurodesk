@@ -1,6 +1,6 @@
 import React, { useRef, useState, useEffect } from "react";
 import Webcam from "react-webcam";
-import "../styles/neuralbrief.css";
+import "../styles/emotion.css";
 
 function EmotionSense() {
 
@@ -31,7 +31,7 @@ function EmotionSense() {
     }
   };
 
-  // auto detect every 2 seconds
+  // detect every 2 seconds
   useEffect(() => {
     const interval = setInterval(() => {
       detectEmotion();
@@ -51,39 +51,63 @@ function EmotionSense() {
   };
 
   return (
-    <div className="neuralbrief-container">
 
-      <h1 className="neuralbrief-title">EMOTIONSENSE</h1>
+    <div className="emotion-page">
 
-      <Webcam
-        ref={webcamRef}
-        screenshotFormat="image/jpeg"
-        width={420}
-      />
+      {/* TITLE */}
 
-      {emotion && (
-        <div className="neuralbrief-output">
+      <h1 className="emotion-title">EMOTIONSENSE</h1>
 
-          <h3>DETECTED EMOTION</h3>
 
-          <h2 style={{fontSize:"34px", marginTop:"10px"}}>
-            {emotion.toUpperCase()} {emojiMap[emotion]}
-          </h2>
+      {/* MAIN LAYOUT */}
 
-          {confidence && (
-            <p style={{opacity:0.8}}>
-              Confidence: {Math.round(confidence * 100)}%
-            </p>
-          )}
+      <div className="emotion-layout">
 
-          <p style={{marginTop:"10px", opacity:0.7}}>
-            Your Live assistant :))
-          </p>
+        {/* WEBCAM */}
+
+        <div className="emotion-camera">
+
+          <Webcam
+            ref={webcamRef}
+            screenshotFormat="image/jpeg"
+            className="emotion-video"
+          />
 
         </div>
-      )}
+
+
+        {/* RESULT */}
+
+        {emotion && (
+
+          <div className="emotion-result">
+
+            <h3 className="emotion-heading">
+              DETECTED EMOTION
+            </h3>
+
+            <h2 className="emotion-value">
+              {emotion.toUpperCase()} {emojiMap[emotion]}
+            </h2>
+
+            {confidence && (
+              <p className="emotion-confidence">
+                Confidence: {Math.round(confidence * 100)}%
+              </p>
+            )}
+
+            <p className="emotion-assistant">
+              Your Live assistant :))
+            </p>
+
+          </div>
+
+        )}
+
+      </div>
 
     </div>
+
   );
 }
 

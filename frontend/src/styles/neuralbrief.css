@@ -1,10 +1,31 @@
+html, body{
+  height:100%;
+  overflow-y:auto;
+}
+
+
+
+
 .neuralbrief-container{
   min-height:100vh;
   display:flex;
+  justify-content:flex-start;
+  align-items:flex-start;
+
+  padding:80px 120px;
+  gap:60px;
+
+  color:white;
+}
+.neuralbrief-left{
+  width:520px;
+}
+/* LEFT PANEL */
+
+.neuralbrief-left{
+  display:flex;
   flex-direction:column;
   justify-content:center;
-  align-items:center;
-  color:white;
 }
 
 .neuralbrief-title{
@@ -15,39 +36,17 @@
 
 .neuralbrief-subtitle{
   margin-top:10px;
-  margin-bottom:40px;
+  margin-bottom:30px;
   opacity:0.8;
+  max-width:500px;
 }
 
-/* TEXT INPUT (NeuralBrief page) */
+/* TEXT INPUT */
 
 .neuralbrief-input{
-  width:700px;
-  height:180px;
+  width:500px;
+  height:200px;
   padding:20px;
-  border-radius:10px;
-  border:none;
-  font-size:16px;
-
-  background:rgba(255,255,255,0.08);
-  color:white;
-  backdrop-filter: blur(10px);
-}
-
-/* CONTAINER FOR INPUT + BUTTON */
-
-.neuralbrief-box{
-  width:700px;
-  display:flex;
-  align-items:center;
-  gap:20px;
-}
-
-/* PDF INPUT (DocuMind) */
-
-.pdf-upload{
-  flex:1;
-  padding:18px;
   border-radius:12px;
   border:none;
   font-size:16px;
@@ -55,14 +54,15 @@
   background:rgba(255,255,255,0.08);
   color:white;
   backdrop-filter: blur(10px);
-
-  cursor:pointer;
-  max-width:500px;
+  resize:none;
 }
 
 /* BUTTON */
 
 .neuralbrief-button{
+  margin-top:20px;
+  width:220px;
+
   padding:14px 30px;
   border:none;
   border-radius:10px;
@@ -72,9 +72,6 @@
   font-weight:700;
   cursor:pointer;
 
-  position:relative;
-  z-index:10;
-
   transition:0.25s ease;
 }
 
@@ -83,28 +80,81 @@
   box-shadow:0 0 12px rgba(255,215,0,0.6);
 }
 
-/* OUTPUT BOX */
 
-.neuralbrief-output{
-  margin-top:40px;
-  width:700px;
-  padding:25px;
-  border-radius:12px;
+/* RIGHT PANEL */
 
-  background:rgba(0,0,0,0.4);
-  border:2px solid rgba(255,255,255,0.2);
+.neuralbrief-right{
+  flex:1;
+  display:flex;
 }
 
-.video-link-input{
-  width:700px;
-  padding:18px;
-  border-radius:12px;
-  border:none;
-  font-size:16px;
+/* SUMMARY CARD */
 
-  background:rgba(255,255,255,0.08);
-  color:white;
+.summary-card{
+  width:100%;
+  max-height:75vh;
+
+  padding:35px 40px;
+  border-radius:14px;
+
+  background:rgba(0,0,0,0.45);
+  border:2px solid rgba(255,255,255,0.15);
+
   backdrop-filter: blur(10px);
 
+  overflow-y:auto;
+}
+
+.summary-title{
   margin-bottom:15px;
+  letter-spacing:1px;
+}
+
+.summary-text{
+  line-height:1.7;
+  color:#f2f2f2;
+}
+
+.summary-placeholder{
+  opacity:0.6;
+}
+
+/* SECTION TITLES */
+
+.section-title{
+  margin-top:25px;
+  margin-bottom:8px;
+  font-size:18px;
+  font-weight:700;
+  letter-spacing:1px;
+}
+
+/* COLOR CODING */
+
+.section-title.summary{
+  color:#4dabff;
+}
+
+.section-title.emotion{
+  color:#ff6b6b;
+}
+
+.section-title.topics{
+  color:#51cf66;
+}
+
+.section-title.keywords{
+  color:#ffd43b;
+}
+
+.section-title.readability{
+  color:#b197fc;
+}
+
+/* TEXT */
+
+.summary-text{
+  margin-bottom:12px;
+  line-height:1.6;
+  color:#f2f2f2;
 }

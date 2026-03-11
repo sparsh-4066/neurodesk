@@ -1,55 +1,98 @@
 import React, { useState } from "react";
-import "../styles/neuralbrief.css";
+import "../styles/visionspeak.css";
 
 function VisionSpeak() {
 
-  const [imageFile, setImageFile] = useState(null);
+  const [file, setFile] = useState(null);
   const [result, setResult] = useState("");
 
-  const handleSubmit = () => {
-    if (!imageFile) return;
+  const handleSubmit = async () => {
 
-    setResult(
-      "This is where the AI-generated image caption will appear once the backend API is connected."
-    );
+    if (!file) {
+      setResult("Please upload an image first.");
+      return;
+    }
+
+    try {
+
+      const formData = new FormData();
+      formData.append("file", file);
+
+      const response = await fetch("http://127.0.0.1:8000/api/image/caption", {
+        method: "POST",
+        body: formData
+      });
+
+      const data = await response.json();
+
+      if (data.caption) {
+        setResult(data.caption);
+      } else {
+        setResult("Failed to generate caption.");
+      }
+
+    } catch (error) {
+
+      console.error(error);
+      setResult("Error connecting to backend.");
+
+    }
+
   };
 
   return (
-    <div className="neuralbrief-container">
 
-      <h1 className="neuralbrief-title">VISIONSPEAK</h1>
+    <div className="visionspeak-container">
 
-      <p className="neuralbrief-subtitle">
-        Upload an image to generate an AI caption
-      </p>
+      {/* LEFT SIDE */}
 
-      <div className="neuralbrief-box">
+      <div className="visionspeak-left">
+
+        <h1 className="visionspeak-title">VISIONSPEAK</h1>
+
+        <p className="visionspeak-subtitle">
+          Upload an image to generate a caption
+        </p>
 
         <input
           type="file"
           accept="image/*"
-          className="pdf-upload"
-          onChange={(e) => setImageFile(e.target.files[0])}
+          className="visionspeak-upload"
+          onChange={(e) => setFile(e.target.files[0])}
         />
 
         <button
-          className="neuralbrief-button"
+          className="visionspeak-button"
           onClick={handleSubmit}
-          disabled={!imageFile}
         >
           Generate Caption
         </button>
 
       </div>
 
-      {result && (
-        <div className="neuralbrief-output">
-          <h3>CAPTION</h3>
-          <p>{result}</p>
+      {/* RIGHT SIDE */}
+
+      <div className="visionspeak-right">
+
+        <div className="visionspeak-output">
+
+          {result ? (
+            <>
+              <h3>CAPTION</h3>
+              <p>{result}</p>
+            </>
+          ) : (
+            <p className="visionspeak-placeholder">
+              Your generated caption will appear here.
+            </p>
+          )}
+
         </div>
-      )}
+
+      </div>
 
     </div>
+
   );
 }
 
