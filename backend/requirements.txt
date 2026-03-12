@@ -1,4 +1,10 @@
 fastapi
 uvicorn
-transformers
-torch
+python-dotenv
+groq
+pdfplumber
+pytesseract
+pdf2image
+Pillow
+youtube-transcript-api
+python-multipart
