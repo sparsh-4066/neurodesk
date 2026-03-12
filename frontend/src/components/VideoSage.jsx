@@ -6,32 +6,73 @@ function VideoSage() {
   const [videoLink, setVideoLink] = useState("");
   const [videoFile, setVideoFile] = useState(null);
   const [result, setResult] = useState("");
-const handleSubmit = async () => {
 
-  if (!videoLink) return;
+  const handleSubmit = async () => {
 
-  try {
+    if (!videoLink) return;
 
-    const response = await fetch("http://127.0.0.1:8000/api/youtube/summarize", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json"
-      },
-      body: JSON.stringify({ url: videoLink })
+    try {
+
+      const response = await fetch("http://127.0.0.1:8000/api/youtube/summarize", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json"
+        },
+        body: JSON.stringify({ url: videoLink })
+      });
+
+      const data = await response.json();
+
+      setResult(data.summary);
+
+    } catch (error) {
+
+      console.error(error);
+      setResult("Error connecting to backend.");
+
+    }
+
+  };
+
+
+  const formatSummary = (text) => {
+
+    if (!text) return null;
+
+    const lines = text.split("\n");
+
+    return lines.map((line, index) => {
+
+      if (line.includes("SUMMARY")) {
+        return <h3 key={index} className="summary-heading">Summary</h3>;
+      }
+
+      if (line.includes("EMOTION")) {
+        return <h3 key={index} className="summary-heading">Emotion</h3>;
+      }
+
+      if (line.includes("KEY TOPICS")) {
+        return <h3 key={index} className="summary-heading">Key Topics</h3>;
+      }
+
+      if (line.includes("KEYWORDS")) {
+        return <h3 key={index} className="summary-heading">Keywords</h3>;
+      }
+
+      if (line.includes("MAIN TAKEAWAYS")) {
+        return <h3 key={index} className="summary-heading">Main Takeaways</h3>;
+      }
+
+      if (line.trim().startsWith("-") || line.trim().startsWith("*")) {
+        return <li key={index}>{line.replace("-", "").replace("*", "")}</li>;
+      }
+
+      return <p key={index}>{line}</p>;
+
     });
 
-    const data = await response.json();
+  };
 
-    setResult(data.summary);
-
-  } catch (error) {
-
-    console.error(error);
-    setResult("Error connecting to backend.");
-
-  }
-
-};
 
   return (
 
@@ -47,8 +88,6 @@ const handleSubmit = async () => {
           Paste a YouTube link or upload a video to generate an intelligent summary
         </p>
 
-        {/* YOUTUBE LINK INPUT */}
-
         <input
           type="text"
           placeholder="Paste YouTube video link..."
@@ -57,16 +96,12 @@ const handleSubmit = async () => {
           onChange={(e) => setVideoLink(e.target.value)}
         />
 
-        {/* VIDEO FILE INPUT */}
-
         <input
           type="file"
           accept="video/*"
           className="videosage-upload"
           onChange={(e) => setVideoFile(e.target.files[0])}
         />
-
-        {/* BUTTON */}
 
         <button
           className="videosage-button"
@@ -85,14 +120,21 @@ const handleSubmit = async () => {
         <div className="videosage-output">
 
           {result ? (
-            <>
-              <h3>SUMMARY</h3>
-              <p>{result}</p>
-            </>
+
+            <div className="summary-content">
+
+              <h2 className="summary-title">Video Analysis</h2>
+
+              {formatSummary(result)}
+
+            </div>
+
           ) : (
+
             <p className="videosage-placeholder">
               Your video summary will appear here once generated.
             </p>
+
           )}
 
         </div>
@@ -102,6 +144,7 @@ const handleSubmit = async () => {
     </div>
 
   );
+
 }
 
 export default VideoSage;

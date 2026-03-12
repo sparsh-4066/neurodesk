@@ -40,6 +40,13 @@ function ResumeLens() {
   };
 
 
+  // Extract ATS score number
+  const getATSScore = (text) => {
+    const match = text.match(/ATS Score:\s*(\d+)/i);
+    return match ? parseInt(match[1]) : null;
+  };
+
+
   const formatAnalysis = (text) => {
 
     if (!text) return null;
@@ -47,10 +54,6 @@ function ResumeLens() {
     const lines = text.split("\n");
 
     return lines.map((line, index) => {
-
-      if (line.includes("ATS Score")) {
-        return <h2 key={index} className="analysis-score">{line}</h2>;
-      }
 
       if (line.includes("Skills")) {
         return <h3 key={index} className="analysis-heading">{line}</h3>;
@@ -64,11 +67,19 @@ function ResumeLens() {
         return <h3 key={index} className="analysis-heading">{line}</h3>;
       }
 
+      if (line.includes("ATS Score")) {
+        return null; // hide raw ATS score line since we show a progress bar
+      }
+
       return <p key={index}>{line}</p>;
 
     });
 
   };
+
+
+  const score = getATSScore(result);
+
 
   return (
 
@@ -116,6 +127,28 @@ function ResumeLens() {
             <div className="analysis-content">
 
               <h2 className="analysis-title">Resume Analysis</h2>
+
+
+              {/* ATS SCORE BAR */}
+
+              {score !== null && (
+
+                <div className="score-container">
+
+                  <div className="score-label">
+                    ATS Score: {score}/100
+                  </div>
+
+                  <div className="score-bar">
+                    <div
+                      className="score-fill"
+                      style={{ width: `${score}%` }}
+                    ></div>
+                  </div>
+
+                </div>
+
+              )}
 
               {formatAnalysis(result)}
 

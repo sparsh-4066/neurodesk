@@ -95,3 +95,27 @@
 .videosage-placeholder{
   opacity:0.6;
 }
+
+.summary-title{
+  font-size:22px;
+  font-weight:700;
+  margin-bottom:20px;
+}
+
+.summary-heading{
+  margin-top:20px;
+  margin-bottom:10px;
+  font-size:18px;
+  color:#ffd700;
+  font-weight:700;
+}
+
+.summary-content p{
+  margin-bottom:10px;
+  line-height:1.6;
+}
+
+.summary-content li{
+  margin-left:20px;
+  margin-bottom:6px;
+}
