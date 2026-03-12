@@ -9,3 +9,4 @@ Pillow
 youtube-transcript-api
 python-multipart
 email-validator
+pymongo
