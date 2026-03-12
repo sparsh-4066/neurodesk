@@ -9,15 +9,16 @@ from routes.text_routes import router as text_router
 from routes.emotion_routes import router as emotion_router
 from routes.pdf_routes import router as pdf_router
 from routes.youtube_routes import router as youtube_router
-from routes.imageroutes import router as image_router   # NEW IMPORT
+from routes.imageroutes import router as image_router
+from routes.resume_routes import router as resume_router   # NEW IMPORT
 
 app = FastAPI()
 
 origins = [
     "http://localhost:5173",
-    "http://127.0.0.1:5173",   # added
+    "http://127.0.0.1:5173",
     "http://localhost:5174",
-    "http://127.0.0.1:5174",   # added
+    "http://127.0.0.1:5174",
 ]
 
 app.add_middleware(
@@ -37,7 +38,8 @@ app.include_router(text_router, prefix="/api/text", tags=["NeuralBrief"])
 app.include_router(pdf_router, prefix="/api/pdf", tags=["DocuMind"])
 app.include_router(emotion_router, prefix="/api", tags=["EmotionSense"])
 app.include_router(youtube_router, prefix="/api", tags=["VideoSage"])
-app.include_router(image_router, prefix="/api", tags=["VisionSpeak"])   # NEW ROUTE
+app.include_router(image_router, prefix="/api", tags=["VisionSpeak"])
+app.include_router(resume_router, prefix="/api", tags=["ResumeLens"])   # NEW ROUTE
 
 @app.get("/")
 def home():
