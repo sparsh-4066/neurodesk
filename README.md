@@ -1,4 +1,4 @@
-# AI Workspace – Multi-Tool Intelligence Platform
+# NeuroDesk – Multi-Tool Intelligence Platform
 
 This project is a web-based AI workspace that integrates multiple intelligent tools into a single interface. It allows users to analyze text, documents, images, videos, and facial expressions using modern AI techniques.
 
@@ -123,7 +123,9 @@ pip install -r requirements.txt
 
 Create a .env file inside backend folder:
 
-OPENAI_API_KEY=your_api_key_here
+
+GROQ_API_KEY=your_api_key_here
+GEMINI_API_KEY=your_api_key_here
 
 Run the backend server:
 
