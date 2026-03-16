@@ -1,67 +1,125 @@
-AI Workspace – Multi-Tool Intelligence Platform
+# AI Workspace – Multi-Tool Intelligence Platform
+
 This project is a web-based AI workspace that integrates multiple intelligent tools into a single interface. It allows users to analyze text, documents, images, videos, and facial expressions using modern AI techniques.
 
 The system is built using a React frontend and a FastAPI backend, providing a scalable and modular architecture for integrating different AI models.
 
+----------------------------------
+
 FEATURES
 
-Text Summarizer Generates concise summaries from long text inputs using natural language processing.
+1. Text Summarizer
+Generates concise summaries from long text inputs using natural language processing.
 
-PDF Document Summarizer Uploads PDF files and extracts meaningful summaries from the document content.
+2. PDF Document Summarizer
+Uploads PDF files and extracts meaningful summaries from the document content.
 
-Video Analyzer Accepts YouTube links or uploaded video files and produces intelligent summaries of the content.
+3. Video Analyzer
+Accepts YouTube links or uploaded video files and produces intelligent summaries of the content.
 
-Resume Analyzer Allows users to upload resumes and performs analysis to highlight important information.
+4. Resume Analyzer
+Allows users to upload resumes and performs analysis to highlight important information.
 
-Image Caption Generator Uploads images and generates descriptive captions using AI models.
+5. Image Caption Generator
+Uploads images and generates descriptive captions using AI models.
 
-Emotion Detection System Uses the device webcam to detect facial expressions and classify emotions in real time.
+6. Emotion Detection System
+Uses the device webcam to detect facial expressions and classify emotions in real time.
 
 Supported emotions:
+- Happy
+- Sad
+- Angry
+- Fear
+- Surprise
+- Disgust
+- Neutral
 
-Happy
-Sad
-Angry
-Fear
-Surprise
-Disgust
-Neutral
+----------------------------------
+
 SYSTEM ARCHITECTURE
 
-Frontend (React + Vite) │ │ REST API ▼ Backend (FastAPI) │ │ AI Modules ▼ Machine Learning Models
+Frontend (React + Vite)
+        │
+        │ REST API
+        ▼
+Backend (FastAPI)
+        │
+        │ AI Modules
+        ▼
+Machine Learning Models
+
+----------------------------------
 
 TECH STACK
 
 Frontend
+- React
+- Vite
+- JavaScript
+- CSS
 
-React
-Vite
-JavaScript
-CSS
 Backend
+- FastAPI
+- Python
 
-FastAPI
-Python
 AI / ML Libraries
+- OpenAI API
+- FER (Facial Emotion Recognition)
+- OpenCV
+- NumPy
 
-OpenAI API
-FER (Facial Emotion Recognition)
-OpenCV
-NumPy
+----------------------------------
+
 PROJECT STRUCTURE
 
-backend │ ├── auth ├── database ├── models ├── modules │ ├── text_summarizer.py │ ├── image_caption.py │ ├── resume_analyzer.py │ └── youtube_summarizer.py │ ├── routes │ ├── text_routes.py │ └── emotion_routes.py │ ├── main.py └── requirements.txt
+backend
+│
+├── auth
+├── database
+├── models
+├── modules
+│   ├── text_summarizer.py
+│   ├── image_caption.py
+│   ├── resume_analyzer.py
+│   └── youtube_summarizer.py
+│
+├── routes
+│   ├── text_routes.py
+│   └── emotion_routes.py
+│
+├── main.py
+└── requirements.txt
 
-frontend │ ├── src │ ├── components │ ├── pages │ ├── services │ └── styles │ ├── package.json └── vite.config.js
+
+frontend
+│
+├── src
+│   ├── components
+│   ├── pages
+│   ├── services
+│   └── styles
+│
+├── package.json
+└── vite.config.js
+
+----------------------------------
 
 INSTALLATION GUIDE
 
-Clone the repository
-git clone cd project-folder
+1. Clone the repository
+
+git clone <repository-url>
+cd project-folder
+
+----------------------------------
 
 BACKEND SETUP
 
-cd backend python -m venv venv venv\Scripts\activate pip install -r requirements.txt
+cd backend
+python -m venv venv
+venv\Scripts\activate
+pip install -r requirements.txt
 
 Create a .env file inside backend folder:
 
@@ -71,36 +129,56 @@ Run the backend server:
 
 uvicorn main:app --reload
 
-Backend runs on: http://127.0.0.1:8000
+Backend runs on:
+http://127.0.0.1:8000
+
+----------------------------------
 
 FRONTEND SETUP
 
-cd frontend npm install npm run dev
+cd frontend
+npm install
+npm run dev
 
-Frontend runs on: http://localhost:5173
+Frontend runs on:
+http://localhost:5173
+
+----------------------------------
 
 API ENDPOINTS
 
-Authentication POST /register POST /login
+Authentication
+POST /register
+POST /login
 
-Text Summarization POST /api/text/summarize
+Text Summarization
+POST /api/text/summarize
 
-Emotion Detection POST /api/emotion
+Emotion Detection
+POST /api/emotion
+
+----------------------------------
 
 KEY HIGHLIGHTS
 
-Modular AI architecture
-Real-time webcam emotion detection
-Multi-tool AI workspace
-React + FastAPI full stack implementation
-Easily extendable for new AI modules
+- Modular AI architecture
+- Real-time webcam emotion detection
+- Multi-tool AI workspace
+- React + FastAPI full stack implementation
+- Easily extendable for new AI modules
+
+----------------------------------
+
 FUTURE IMPROVEMENTS
 
-Speech-to-text analysis
-Real-time video summarization
-Chat-based AI assistant
-Advanced resume scoring system
-Multi-language support
+- Speech-to-text analysis
+- Real-time video summarization
+- Chat-based AI assistant
+- Advanced resume scoring system
+- Multi-language support
+
+----------------------------------
+
 LICENSE
 
 This project is developed for academic and research purposes.
